@@ -1,0 +1,46 @@
+{
+  "name": "kra-dev-snippets-20260624c",
+  "displayName": "KRA Dev Snippets 2026",
+  "description": "VS Code extension providing code snippets for KRA fiscal device integration and tax calculation logic.",
+  "version": "1.0.0",
+  "publisher": "dev-community",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Snippets",
+    "Programming Languages"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "kra-dev.calculateTax",
+        "title": "KRA: Calculate 16% VAT on Selection"
+      },
+      {
+        "command": "kra-dev.insertETimsHeader",
+        "title": "KRA: Insert eTIMS Payload Header"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "json",
+        "path": "./snippets.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "eslint": "^8.36.0"
+  }
+}
