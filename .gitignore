@@ -1,0 +1,12 @@
+out
+node_modules
+.vscode-test
+*.vsix
+.DS_Store
+vsc-extension-quickstart.md
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.log
