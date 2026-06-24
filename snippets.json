@@ -1,0 +1,60 @@
+{
+  "KRA TIMS Transaction Payload": {
+    "prefix": "kra-tims-payload",
+    "body": [
+      "{",
+      "  \"header\": {",
+      "    \"cuSerialNumber\": \"${1:DEVICE_SERIAL}\",",
+      "    \"invoiceNumber\": \"${2:INV-001}\",",
+      "    \"dateTime\": \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}\"",
+      "  },",
+      "  \"details\": [",
+      "    {",
+      "      \"itemCode\": \"${3:G1}\",",
+      "      \"description\": \"${4:Item Description}\",",
+      "      \"quantity\": ${5:1},",
+      "      \"unitPrice\": ${6:100.00},",
+      "      \"vatRate\": \"A\",",
+      "      \"vatAmount\": ${7:16.00}",
+      "    }",
+      "  ],",
+      "  \"summary\": {",
+      "    \"totalAmount\": ${8:116.00},",
+      "    \"totalVat\": ${9:16.00}",
+      "  }",
+      "}"
+    ],
+    "description": "Generate a standard KRA TIMS JSON payload structure"
+  },
+  "KRA VAT JS Function": {
+    "prefix": "kra-vat-calc",
+    "body": [
+      "/**",
+      " * Calculates KRA VAT 16% for eTIMS integration",
+      " * @param {number} amount - The net amount",
+      " */",
+      "const calculateKRAVAT = (amount) => {",
+      "    const VAT_RATE = 0.16;",
+      "    const vat = Math.round((amount * VAT_RATE) * 100) / 100;",
+      "    return {",
+      "        net: amount,",
+      "        vat: vat,",
+      "        gross: amount + vat",
+      "    };",
+      "};"
+    ],
+    "description": "JavaScript function for KRA 16% VAT calculation"
+  },
+  "KRA Tax Categories": {
+    "prefix": "kra-tax-codes",
+    "body": [
+      "// KRA Tax Categories",
+      "// A: 16% (Standard Rate)",
+      "// B: 8% (Petroleum Products)",
+      "// C: 0% (Zero Rated)",
+      "// D: Exempt",
+      "// E: Export"
+    ],
+    "description": "List of KRA Tax Category Codes"
+  }
+}
